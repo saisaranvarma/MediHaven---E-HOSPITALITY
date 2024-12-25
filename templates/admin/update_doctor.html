@@ -1,0 +1,15 @@
+{% extends 'admin/index.html' %}
+
+{% block update%}
+<h1>Update Doctor Details</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+
+{% endblock %}
+
+
+{% block doctors %}{% endblock %}

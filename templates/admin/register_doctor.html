@@ -1,0 +1,14 @@
+{% extends 'admin/index.html' %}
+
+
+{% block content1 %}
+<div class="container">
+    <h2>Register Doctor</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}
+{% block doctors %}{% endblock %}

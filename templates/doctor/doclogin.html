@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("{% static 'assets/img/doctor.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            padding: 12px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .form-control {
+            height: 45px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .register-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<img src="{% static 'assets/img/medihaven.png' %}" style="position:absolute;width:100px;height:auto;top:150px;left:580px">
+<a href="{% url 'patientview' %}"><img src="{% static 'assets/img/medihaven.png' %}" style="position:absolute;width:120px;height:auto;top:3px;left:3px;border:1px solid black;background:white;border-radius:100%;"></a>
+    <div class="login-form">
+
+        <h2 class="form-title">Doctor Login</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                {{ form.email|add_class:"form-control" }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                {{ form.password|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-custom">Login</button>
+        </form>
+
+
+    </div>
+</body>
+</html>

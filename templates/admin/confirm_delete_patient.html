@@ -1,0 +1,12 @@
+{% extends 'admin/index.html' %}
+
+{% block content2 %}
+<h1>Confirm Delete</h1>
+<p>Are you sure you want to delete patient: {{ patient.first_name }} {{ patient.last_name }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="{% url 'adminuser' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
+{% block doctors %}{% endblock %}

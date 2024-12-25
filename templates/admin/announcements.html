@@ -1,0 +1,24 @@
+{% extends 'admin/index.html' %}
+
+{% block content1 %}
+<div class="container mt-5">
+    <h1 class="text-center">Add New Announcement</h1>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.description.label_tag }}
+                            {{ form.description }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Announcement</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block doctors %}{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'admin/index.html' %}
+
+{% block content1%}
+<h1>Are you sure you want to delete {{ doctor.name }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete</button>
+    <a href="{% url 'adminuser' %}">Cancel</a>
+</form>
+{% endblock %}
